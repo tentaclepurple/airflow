@@ -1,0 +1,53 @@
+[2025-02-16T11:40:17.351+0100] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-02-16T11:40:17.363+0100] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: 42stats_update_db.send_init_email __airflow_temporary_run_2025-02-16T10:40:14.504922+00:00__ [queued]>
+[2025-02-16T11:40:17.370+0100] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: 42stats_update_db.send_init_email __airflow_temporary_run_2025-02-16T10:40:14.504922+00:00__ [queued]>
+[2025-02-16T11:40:17.370+0100] {taskinstance.py:2867} INFO - Starting attempt 1 of 1
+[2025-02-16T11:40:17.388+0100] {taskinstance.py:2890} INFO - Executing <Task(EmailOperator): send_init_email> on 2024-02-15 00:00:00+00:00
+[2025-02-16T11:40:17.393+0100] {standard_task_runner.py:72} INFO - Started process 16981 to run task
+[2025-02-16T11:40:17.397+0100] {standard_task_runner.py:104} INFO - Running: ['airflow', 'tasks', 'run', '42stats_update_db', 'send_init_email', '__airflow_temporary_run_2025-02-16T10:40:14.504922+00:00__', '--job-id', '39', '--raw', '--subdir', 'DAGS_FOLDER/42stats_get_levels.py', '--cfg-path', '/tmp/tmpyw1gpw1z']
+[2025-02-16T11:40:17.399+0100] {standard_task_runner.py:105} INFO - Job 39: Subtask send_init_email
+[2025-02-16T11:40:17.445+0100] {task_command.py:467} INFO - Running <TaskInstance: 42stats_update_db.send_init_email __airflow_temporary_run_2025-02-16T10:40:14.504922+00:00__ [running]> on host n97
+[2025-02-16T11:40:17.520+0100] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='42stats_update_db' AIRFLOW_CTX_TASK_ID='send_init_email' AIRFLOW_CTX_EXECUTION_DATE='2024-02-15T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='__airflow_temporary_run_2025-02-16T10:40:14.504922+00:00__'
+[2025-02-16T11:40:17.521+0100] {taskinstance.py:732} INFO - ::endgroup::
+[2025-02-16T11:40:17.548+0100] {logging_mixin.py:190} WARNING - /home/wolfframio/miniforge3/envs/airflow_env/lib/python3.9/site-packages/airflow/utils/email.py:155 RemovedInAirflow3Warning: Fetching SMTP credentials from configuration variables will be deprecated in a future release. Please set credentials using a connection instead.
+[2025-02-16T11:40:17.548+0100] {email.py:272} INFO - Email alerting: attempt 1
+[2025-02-16T11:40:28.482+0100] {email.py:283} INFO - Sent an alert email to ['estudiosplateau49@gmail.com']
+[2025-02-16T11:40:29.616+0100] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-02-16T11:40:29.617+0100] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=42stats_update_db, task_id=send_init_email, run_id=__airflow_temporary_run_2025-02-16T10:40:14.504922+00:00__, execution_date=20240215T000000, start_date=20250216T104017, end_date=20250216T104029
+[2025-02-16T11:40:29.641+0100] {standard_task_runner.py:124} ERROR - Failed to execute job 39 for task send_init_email (No row was found when one was required; 16981)
+Traceback (most recent call last):
+  File "/home/wolfframio/miniforge3/envs/airflow_env/lib/python3.9/site-packages/airflow/task/task_runner/standard_task_runner.py", line 117, in _start_by_fork
+    ret = args.func(args, dag=self.dag)
+  File "/home/wolfframio/miniforge3/envs/airflow_env/lib/python3.9/site-packages/airflow/cli/cli_config.py", line 49, in command
+    return func(*args, **kwargs)
+  File "/home/wolfframio/miniforge3/envs/airflow_env/lib/python3.9/site-packages/airflow/utils/cli.py", line 116, in wrapper
+    return f(*args, **kwargs)
+  File "/home/wolfframio/miniforge3/envs/airflow_env/lib/python3.9/site-packages/airflow/cli/commands/task_command.py", line 483, in task_run
+    task_return_code = _run_task_by_selected_method(args, _dag, ti)
+  File "/home/wolfframio/miniforge3/envs/airflow_env/lib/python3.9/site-packages/airflow/cli/commands/task_command.py", line 256, in _run_task_by_selected_method
+    return _run_raw_task(args, ti)
+  File "/home/wolfframio/miniforge3/envs/airflow_env/lib/python3.9/site-packages/airflow/cli/commands/task_command.py", line 341, in _run_raw_task
+    return ti._run_raw_task(
+  File "/home/wolfframio/miniforge3/envs/airflow_env/lib/python3.9/site-packages/airflow/utils/session.py", line 97, in wrapper
+    return func(*args, session=session, **kwargs)
+  File "/home/wolfframio/miniforge3/envs/airflow_env/lib/python3.9/site-packages/airflow/models/taskinstance.py", line 3006, in _run_raw_task
+    return _run_raw_task(
+  File "/home/wolfframio/miniforge3/envs/airflow_env/lib/python3.9/site-packages/airflow/models/taskinstance.py", line 366, in _run_raw_task
+    TaskInstance.save_to_db(ti=ti, session=session)
+  File "/home/wolfframio/miniforge3/envs/airflow_env/lib/python3.9/site-packages/airflow/api_internal/internal_api_call.py", line 166, in wrapper
+    return func(*args, **kwargs)
+  File "/home/wolfframio/miniforge3/envs/airflow_env/lib/python3.9/site-packages/airflow/utils/session.py", line 94, in wrapper
+    return func(*args, **kwargs)
+  File "/home/wolfframio/miniforge3/envs/airflow_env/lib/python3.9/site-packages/airflow/models/taskinstance.py", line 3402, in save_to_db
+    ti.get_dagrun().refresh_from_db()
+  File "/home/wolfframio/miniforge3/envs/airflow_env/lib/python3.9/site-packages/airflow/utils/session.py", line 97, in wrapper
+    return func(*args, session=session, **kwargs)
+  File "/home/wolfframio/miniforge3/envs/airflow_env/lib/python3.9/site-packages/airflow/models/dagrun.py", line 359, in refresh_from_db
+    dr = session.scalars(
+  File "/home/wolfframio/miniforge3/envs/airflow_env/lib/python3.9/site-packages/sqlalchemy/engine/result.py", line 1522, in one
+    return self._only_one_row(
+  File "/home/wolfframio/miniforge3/envs/airflow_env/lib/python3.9/site-packages/sqlalchemy/engine/result.py", line 562, in _only_one_row
+    raise exc.NoResultFound(
+sqlalchemy.exc.NoResultFound: No row was found when one was required
+[2025-02-16T11:40:29.662+0100] {local_task_job_runner.py:266} INFO - Task exited with return code 1
+[2025-02-16T11:40:29.671+0100] {local_task_job_runner.py:245} INFO - ::endgroup::

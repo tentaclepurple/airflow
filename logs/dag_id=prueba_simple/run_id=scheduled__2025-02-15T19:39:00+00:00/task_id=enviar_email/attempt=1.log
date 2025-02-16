@@ -1,0 +1,27 @@
+[2025-02-15T20:40:48.228+0100] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-02-15T20:40:48.244+0100] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: prueba_simple.enviar_email scheduled__2025-02-15T19:39:00+00:00 [queued]>
+[2025-02-15T20:40:48.251+0100] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: prueba_simple.enviar_email scheduled__2025-02-15T19:39:00+00:00 [queued]>
+[2025-02-15T20:40:48.252+0100] {taskinstance.py:2867} INFO - Starting attempt 1 of 1
+[2025-02-15T20:40:48.270+0100] {taskinstance.py:2890} INFO - Executing <Task(EmailOperator): enviar_email> on 2025-02-15 19:39:00+00:00
+[2025-02-15T20:40:48.276+0100] {standard_task_runner.py:72} INFO - Started process 8293 to run task
+[2025-02-15T20:40:48.280+0100] {standard_task_runner.py:104} INFO - Running: ['airflow', 'tasks', 'run', 'prueba_simple', 'enviar_email', 'scheduled__2025-02-15T19:39:00+00:00', '--job-id', '46', '--raw', '--subdir', 'DAGS_FOLDER/test.py', '--cfg-path', '/tmp/tmppqft_q1p']
+[2025-02-15T20:40:48.282+0100] {standard_task_runner.py:105} INFO - Job 46: Subtask enviar_email
+[2025-02-15T20:40:48.327+0100] {task_command.py:467} INFO - Running <TaskInstance: prueba_simple.enviar_email scheduled__2025-02-15T19:39:00+00:00 [running]> on host n97
+[2025-02-15T20:40:48.418+0100] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='prueba_simple' AIRFLOW_CTX_TASK_ID='enviar_email' AIRFLOW_CTX_EXECUTION_DATE='2025-02-15T19:39:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-02-15T19:39:00+00:00'
+[2025-02-15T20:40:48.419+0100] {logging_mixin.py:190} INFO - Task instance is in running state
+[2025-02-15T20:40:48.420+0100] {logging_mixin.py:190} INFO -  Previous state of the Task instance: queued
+[2025-02-15T20:40:48.420+0100] {logging_mixin.py:190} INFO - Current task name:enviar_email state:running start_date:2025-02-15 19:40:48.244452+00:00
+[2025-02-15T20:40:48.420+0100] {logging_mixin.py:190} INFO - Dag name:prueba_simple and current dag run status:running
+[2025-02-15T20:40:48.421+0100] {taskinstance.py:732} INFO - ::endgroup::
+[2025-02-15T20:40:48.434+0100] {logging_mixin.py:190} WARNING - /home/wolfframio/miniforge3/envs/airflow_env/lib/python3.9/site-packages/airflow/utils/email.py:155 RemovedInAirflow3Warning: Fetching SMTP credentials from configuration variables will be deprecated in a future release. Please set credentials using a connection instead.
+[2025-02-15T20:40:48.435+0100] {email.py:272} INFO - Email alerting: attempt 1
+[2025-02-15T20:40:59.450+0100] {email.py:283} INFO - Sent an alert email to ['estudiosplateau49@gmail.com']
+[2025-02-15T20:41:00.485+0100] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-02-15T20:41:00.486+0100] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=prueba_simple, task_id=enviar_email, run_id=scheduled__2025-02-15T19:39:00+00:00, execution_date=20250215T193900, start_date=20250215T194048, end_date=20250215T194100
+[2025-02-15T20:41:00.525+0100] {logging_mixin.py:190} INFO - Task instance in success state
+[2025-02-15T20:41:00.526+0100] {logging_mixin.py:190} INFO -  Previous state of the Task instance: running
+[2025-02-15T20:41:00.526+0100] {logging_mixin.py:190} INFO - Dag name:prueba_simple queued_at:2025-02-15 19:40:32.095728+00:00
+[2025-02-15T20:41:00.527+0100] {logging_mixin.py:190} INFO - Task hostname:n97 operator:EmailOperator
+[2025-02-15T20:41:00.554+0100] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-02-15T20:41:00.568+0100] {taskinstance.py:3901} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-02-15T20:41:00.569+0100] {local_task_job_runner.py:245} INFO - ::endgroup::
